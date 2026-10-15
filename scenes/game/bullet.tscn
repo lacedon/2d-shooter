@@ -1,0 +1,21 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/bullet.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/fx/bullet.png" id="2_tex"]
+
+[sub_resource type="RectangleShape2D" id="shape_bullet"]
+size = Vector2(22, 8)
+
+[node name="Bullet" type="Area2D"]
+collision_layer = 16
+collision_mask = 13
+monitorable = false
+script = ExtResource("1_script")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+rotation = 1.5708
+scale = Vector2(1.5, 1.5)
+texture = ExtResource("2_tex")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("shape_bullet")

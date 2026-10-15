@@ -1,0 +1,22 @@
+[gd_resource type="Resource" script_class="WeaponData" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/weapon_data.gd" id="1_s"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/player_silencer.png" id="2_t"]
+[ext_resource type="Texture2D" path="res://assets/sprites/weapons/icon_shotgun.png" id="3_i"]
+
+[resource]
+script = ExtResource("1_s")
+display_name = "Shotgun"
+player_texture = ExtResource("2_t")
+icon = ExtResource("3_i")
+sprite_offset = Vector2(10, 0)
+muzzle_offset = Vector2(39, 10)
+fire_interval = 0.55
+damage = 1
+pellets = 5
+spread_deg = 30.0
+bullet_speed = 1150.0
+bullet_lifetime = 0.35
+knockback = 260.0
+shake = 0.35
+sfx = &"shotgun"

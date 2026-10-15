@@ -1,0 +1,55 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/game.gd" id="1_game"]
+[ext_resource type="Script" path="res://scripts/level/level_builder.gd" id="2_level"]
+[ext_resource type="Script" path="res://scripts/game/enemy_manager.gd" id="3_enemies"]
+[ext_resource type="PackedScene" path="res://scenes/game/enemy.tscn" id="4_enemy"]
+[ext_resource type="PackedScene" path="res://scenes/game/player.tscn" id="5_player"]
+[ext_resource type="Script" path="res://scripts/game/bullet_pool.gd" id="6_bullets"]
+[ext_resource type="PackedScene" path="res://scenes/game/bullet.tscn" id="7_bullet"]
+[ext_resource type="Script" path="res://scripts/game/fx_pool.gd" id="8_fx"]
+[ext_resource type="Script" path="res://scripts/game/crosshair.gd" id="9_cross"]
+[ext_resource type="Texture2D" path="res://assets/sprites/ui/crosshair.png" id="10_cross_tex"]
+[ext_resource type="PackedScene" path="res://scenes/game/hud.tscn" id="11_hud"]
+[ext_resource type="PackedScene" path="res://scenes/game/pause_menu.tscn" id="12_pause"]
+[ext_resource type="PackedScene" path="res://scenes/game/end_screen.tscn" id="13_end"]
+
+[node name="Game" type="Node2D"]
+script = ExtResource("1_game")
+
+[node name="World" type="Node2D" parent="."]
+
+[node name="Level" type="Node2D" parent="World"]
+script = ExtResource("2_level")
+
+[node name="Floor" type="TileMapLayer" parent="World/Level"]
+collision_enabled = false
+
+[node name="Walls" type="TileMapLayer" parent="World/Level"]
+
+[node name="Spawners" type="Node2D" parent="World"]
+
+[node name="EnemyManager" type="Node2D" parent="World"]
+script = ExtResource("3_enemies")
+enemy_scene = ExtResource("4_enemy")
+
+[node name="Player" parent="World" instance=ExtResource("5_player")]
+
+[node name="BulletPool" type="Node2D" parent="World"]
+script = ExtResource("6_bullets")
+bullet_scene = ExtResource("7_bullet")
+
+[node name="FxPool" type="Node2D" parent="World"]
+script = ExtResource("8_fx")
+
+[node name="Crosshair" type="Sprite2D" parent="World"]
+z_index = 100
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("10_cross_tex")
+script = ExtResource("9_cross")
+
+[node name="HUD" parent="." instance=ExtResource("11_hud")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("12_pause")]
+
+[node name="EndScreen" parent="." instance=ExtResource("13_end")]

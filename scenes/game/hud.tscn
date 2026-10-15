@@ -1,0 +1,119 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/hud.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://assets/sprites/weapons/icon_pistol.png" id="2_pistol"]
+[ext_resource type="Texture2D" path="res://assets/sprites/weapons/icon_machine_gun.png" id="3_mg"]
+[ext_resource type="Texture2D" path="res://assets/sprites/weapons/icon_shotgun.png" id="4_shotgun"]
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource("1_script")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="TopLeft" type="MarginContainer" parent="Root"]
+layout_mode = 1
+offset_right = 40.0
+offset_bottom = 40.0
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="Root/TopLeft"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="HpRow" type="HBoxContainer" parent="Root/TopLeft/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 12
+
+[node name="HpLabel" type="Label" parent="Root/TopLeft/VBox/HpRow"]
+layout_mode = 2
+mouse_filter = 2
+text = "HP 10/10"
+
+[node name="HpBar" type="ProgressBar" parent="Root/TopLeft/VBox/HpRow"]
+custom_minimum_size = Vector2(200, 20)
+layout_mode = 2
+size_flags_vertical = 4
+mouse_filter = 2
+max_value = 10.0
+step = 1.0
+value = 10.0
+show_percentage = false
+
+[node name="Weapons" type="HBoxContainer" parent="Root/TopLeft/VBox"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/separation = 8
+
+[node name="Slot1" type="TextureRect" parent="Root/TopLeft/VBox/Weapons"]
+custom_minimum_size = Vector2(56, 40)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("2_pistol")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot2" type="TextureRect" parent="Root/TopLeft/VBox/Weapons"]
+modulate = Color(1, 1, 1, 0.35)
+custom_minimum_size = Vector2(56, 40)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("3_mg")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Slot3" type="TextureRect" parent="Root/TopLeft/VBox/Weapons"]
+modulate = Color(1, 1, 1, 0.35)
+custom_minimum_size = Vector2(56, 40)
+layout_mode = 2
+mouse_filter = 2
+texture = ExtResource("4_shotgun")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="WeaponName" type="Label" parent="Root/TopLeft/VBox/Weapons"]
+layout_mode = 2
+mouse_filter = 2
+text = "Pistol"
+
+[node name="TopRight" type="MarginContainer" parent="Root"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -40.0
+offset_bottom = 40.0
+grow_horizontal = 0
+mouse_filter = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 16
+
+[node name="VBox" type="VBoxContainer" parent="Root/TopRight"]
+layout_mode = 2
+mouse_filter = 2
+alignment = 2
+
+[node name="SpawnersLabel" type="Label" parent="Root/TopRight/VBox"]
+layout_mode = 2
+mouse_filter = 2
+text = "Spawners: 4/4"
+horizontal_alignment = 2
+
+[node name="KillsLabel" type="Label" parent="Root/TopRight/VBox"]
+layout_mode = 2
+mouse_filter = 2
+text = "Kills: 0"
+horizontal_alignment = 2

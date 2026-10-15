@@ -1,0 +1,23 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/game/spawner.gd" id="1_script"]
+[ext_resource type="Resource" path="res://data/enemies/zombie.tres" id="2_zombie"]
+[ext_resource type="Resource" path="res://data/enemies/robot.tres" id="3_robot"]
+[ext_resource type="Texture2D" path="res://assets/sprites/tiles/spawner.png" id="4_tex"]
+
+[sub_resource type="RectangleShape2D" id="shape_spawner"]
+size = Vector2(56, 56)
+
+[node name="Spawner" type="StaticBody2D" groups=["spawners"]]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_script")
+zombie_stats = ExtResource("2_zombie")
+robot_stats = ExtResource("3_robot")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+scale = Vector2(1.1, 1.1)
+texture = ExtResource("4_tex")
+
+[node name="Shape" type="CollisionShape2D" parent="."]
+shape = SubResource("shape_spawner")

@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_stats.gd" id="1_s"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/robot.png" id="2_t"]
+
+[resource]
+script = ExtResource("1_s")
+kind = &"robot"
+texture = ExtResource("2_t")
+max_hp = 3
+speed = 115.0
+accel = 6.0
+contact_damage = 2
+knockback_scale = 0.5
+hit_sfx = &"robot_hit"
+death_sfx = &"robot_die"
+puff_tint = Color(0.8, 0.9, 1, 1)
+puff_scale = 1.25

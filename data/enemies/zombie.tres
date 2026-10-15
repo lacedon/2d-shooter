@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="EnemyStats" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/enemy_stats.gd" id="1_s"]
+[ext_resource type="Texture2D" path="res://assets/sprites/characters/zombie.png" id="2_t"]
+
+[resource]
+script = ExtResource("1_s")
+kind = &"zombie"
+texture = ExtResource("2_t")
+max_hp = 1
+speed = 190.0
+accel = 10.0
+contact_damage = 1
+knockback_scale = 1.0
+hit_sfx = &""
+death_sfx = &"zombie_die"
+puff_tint = Color(0.75, 1, 0.6, 1)
+puff_scale = 0.9
